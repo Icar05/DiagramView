@@ -1,1 +1,2 @@
-include ':app', ':diagramView'
+include ':app'
+include ':diagramview'

@@ -6,13 +6,184 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideVertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+    <TextView
+        android:id="@+id/Water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H20"
+        app:layout_constraintEnd_toEndOf="@id/guideVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <com.Icar05.diagramview.DiagramView
+        android:id="@+id/dvTopLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:mTopColor="@color/colorOrange"
+        app:mBottomColor="@color/colorGreen"
+        app:layout_constraintBottom_toTopOf="@+id/Water2"
+        app:layout_constraintEnd_toEndOf="@id/guideVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Water" />
+
+    <TextView
+        android:id="@+id/Water2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H20"
+        app:layout_constraintEnd_toEndOf="@id/guideVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHorizontal"
+        tools:ignore="HardcodedText" />
+
+    <!--second section, fire-->
+
+
+    <TextView
+        android:id="@+id/Fire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fire"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideVertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+       <com.Icar05.diagramview.DiagramView
+        android:id="@+id/dvTopRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:mTopColor="@color/colorRed"
+        app:mBottomColor="@color/colorYellow"
+        app:layout_constraintBottom_toTopOf="@id/Fire2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideVertical"
+           app:layout_constraintTop_toBottomOf="@id/Fire" />
+
+
+    <TextView
+        android:id="@+id/Fire2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fire"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideVertical"
+        app:layout_constraintBottom_toTopOf="@id/guideHorizontal"
+        tools:ignore="HardcodedText" />
+
+
+
+
+    <!--C30H-->
+    <TextView
+        android:id="@+id/C3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C3"
+        app:layout_constraintTop_toTopOf="@id/guideHorizontal"
+        app:layout_constraintEnd_toEndOf="@id/guideVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <com.Icar05.diagramview.DiagramView
+        android:id="@+id/bottomLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:mTopColor="@color/colorGreen"
+        app:mBottomColor="@color/colorViolet"
+        app:layout_constraintBottom_toTopOf="@id/C32"
+        app:layout_constraintEnd_toEndOf="@id/guideVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/C3"  />
+
+
+    <!--C30H-->
+    <TextView
+        android:id="@+id/C32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C3"
+        app:layout_constraintEnd_toEndOf="@id/guideVertical"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:ignore="HardcodedText" />
+
+
+    <!--gas-->
+
+    <TextView
+        android:id="@+id/Gas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideVertical"
+        app:layout_constraintTop_toTopOf="@id/guideHorizontal"
+        tools:ignore="HardcodedText" />
+
+    <com.Icar05.diagramview.DiagramView
+        android:id="@+id/bottomRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:mTopColor="@color/colorRed"
+        app:mBottomColor="@color/colorBlue"
+        app:layout_constraintBottom_toTopOf="@id/Gas2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideVertical"
+        app:layout_constraintTop_toBottomOf="@id/Gas" />
+
+
+    <TextView
+        android:id="@+id/Gas2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideVertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="HardcodedText" />
+
+
+
+    <!-- deviders-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@color/colorRed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideHorizontal"
+        app:layout_constraintTop_toTopOf="@id/guideHorizontal" />
+
+    <View
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        android:background="@color/colorRed"
+        app:layout_constraintEnd_toEndOf="@id/guideVertical"
+        app:layout_constraintStart_toStartOf="@id/guideVertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
 
 </android.support.constraint.ConstraintLayout>
