@@ -6,6 +6,10 @@ import com.Icar05.diagramview.SimpleHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+   will return default content
+ */
 public class BigContentHelper {
 
     List<SimpleHolder> getContent(){
