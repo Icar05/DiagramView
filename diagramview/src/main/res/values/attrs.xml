@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="DiagramView">
+
+
+        <attr name="mTopColor" format="color"/>
+        <attr name="mBottomColor" format="color"/>
+        <attr name="mHorizontalLinesColor" format="color"/>
+        <attr name="mHeight" format="dimension"/>
+
+    </declare-styleable>
+
+
+</resources>

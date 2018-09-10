@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000</color>
+    <color name="white">#fff</color>
+    <color name="defaultTopColor">#ffea4b</color>
+    <color name="defaultBottomColor">#F73030</color>
+    <color name="defaulthorizontalLinesColor">#32ffffff</color>
+    <color name="bottomGradientColor">#73ffffff</color>
+</resources>
