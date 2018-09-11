@@ -12,25 +12,17 @@ import java.util.List;
  */
 public class BigContentHelper {
 
-    List<SimpleHolder> getContent(){
+    private bigContentHelper delegate;
 
-        List<SimpleHolder> list = new ArrayList<>();
-
-        for(int i = 0; i< 5; i++){
-            list.add(getNewHolder());
-        }
-
-        return list;
+    public void setDelegate(bigContentHelper delegate) {
+        this.delegate = delegate;
     }
 
 
 
-    private SimpleHolder getNewHolder() {
-        return new SimpleHolder(getNewList());
-    }
 
-    private List<DiagramModel> getNewList() {
 
+    public DiagramModel getRandomData(){
         int minStep = 1;
         int maxStep = 10;
 
@@ -38,19 +30,33 @@ public class BigContentHelper {
         int maxValue = 100;
 
 
+        int step = minStep + (int) (Math.random() * maxStep);
+        int value = minValue + (int) (Math.random() * maxValue);
 
-        List<DiagramModel> list = new ArrayList<>();
-        for(int i = 0; i< 10; i++){
-            int step  = minStep + (int)(Math.random() * maxStep);
-            int value = minValue + (int)(Math.random() * maxValue);
+        return new DiagramModel(value, step);
+    }
 
-            if(i %5 == 0){
+    public void emitData(int count){
+        int minStep = 1;
+        int maxStep = 10;
+
+        int minValue = 10;
+        int maxValue = 100;
+
+        for(int i = 0; i< count; i++) {
+            int step = minStep + (int) (Math.random() * maxStep);
+            int value = minValue + (int) (Math.random() * maxValue);
+
+            if (i % 5 == 0) {
                 step = 10;
             }
 
-            list.add(new DiagramModel(value, step));
+            if(delegate!= null){
+                delegate.getNewContent(new DiagramModel(value, step));
+            }
+
         }
-        return list;
+
     }
 
     public SimpleHolder getSource() {
@@ -69,6 +75,13 @@ public class BigContentHelper {
 
 
         return new SimpleHolder(list);
+    }
+
+
+
+
+    interface bigContentHelper{
+        void getNewContent(DiagramModel model);
     }
 
 }
