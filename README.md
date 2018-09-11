@@ -12,7 +12,6 @@ Simple usage looks like next:
        
 ![alt text](https://github.com/Icar05/DiagramView/blob/master/usage.png)
 
-diagramView.setContent(new SimpleHolder(list));
 
 # Download
 implementation 'com.github.Icar05:diagramview:0.1.0' <br>
