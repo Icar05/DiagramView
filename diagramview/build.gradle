@@ -39,7 +39,7 @@ publish {
 
     def groupProjectID = 'com.github.Icar05'
     def artifactProjectID = 'diagramview'
-    def publishVersionID = '0.1.0'
+    def publishVersionID = '0.1.2'
 
 
     uploadName='DiagramView'
