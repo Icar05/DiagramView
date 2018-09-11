@@ -20,11 +20,23 @@ Usage animation:
 implementation 'com.github.Icar05:diagramview:0.1.0' <br>
 
 [ ![Download](https://api.bintray.com/packages/icar05/diagramview/DiagramView/images/download.svg) ](https://bintray.com/icar05/diagramview/DiagramView/_latestVersion)
+
+
 # Attributes
 
   • mTopColor - color that will start draw gradient from top <br><br>
   • mBottomColor - color that will start draw gradient from bottom <br><br>
   • mHorizontalLinesColor - color of horizontal lines, which show step in graphic <br><br>
+  
+  
+# Classes
+
+  • DiagramView - View for drawing graphics <br><br>
+  • DiagramModel - Model that requere for drawing view. Has 2 values : value(int) , step(int) <br><br>
+  • DiagramDataHolder - Abstract parent class of holder, which store and works with content <br><br>
+  • DiagramException - Custom exception, cases: value < 1, step < 1, content.size() < 1, etc. <br><br>
+  • SimpleHolder - Simple child of DiagramDataHolder, that has list of models in constructor <br><br>
+  • DiagramEngine - in version > 0.1.0 will help create animation for DiagramView <br><br>
 
 # License
 
