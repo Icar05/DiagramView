@@ -1,13 +1,15 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'com.novoda.bintray-release'
+
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
 
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
@@ -26,8 +28,29 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+
+publish {
+
+    def groupProjectID = 'com.github.Icar05'
+    def artifactProjectID = 'diagramview'
+    def publishVersionID = '0.1.0'
+
+
+    uploadName='DiagramView'
+    licences = ['Apache-2.0']
+    userOrg = ''
+    repoName = 'diagramview'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Library that allow draw nice grafics'
+    website = 'https://github.com/Icar05/DiagramView.git'
+
+
 }
