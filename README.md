@@ -9,12 +9,8 @@ or you can simple use SimpleHolder(). Each step in graphic - is DataModel. DataM
 fields: value and step. Both shouldn't be < 1.
 
 Simple usage looks like next:
-
-List<DiagramModel> list = new ArrayList<>();
-
-list.add(new DiagramModel(3, 3));
-list.add(new DiagramModel(2, 1));
-list.add(new DiagramModel(1, 2));
+       
+![alt text](https://github.com/Icar05/DiagramView/blob/master/usage.png)
 
 diagramView.setContent(new SimpleHolder(list));
 
