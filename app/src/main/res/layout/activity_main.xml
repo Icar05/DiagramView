@@ -26,7 +26,7 @@
         android:id="@+id/Water"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="H20"
+        android:text="Spring"
         app:layout_constraintEnd_toEndOf="@id/guideVertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -47,20 +47,20 @@
         android:id="@+id/Water2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="H20"
+        android:text="Spring"
         app:layout_constraintEnd_toEndOf="@id/guideVertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/guideHorizontal"
         tools:ignore="HardcodedText" />
 
-    <!--second section, fire-->
+    <!--second section, Autumn-->
 
 
     <TextView
-        android:id="@+id/Fire"
+        android:id="@+id/Autumn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fire"
+        android:text="Autumn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideVertical"
         app:layout_constraintTop_toTopOf="parent"
@@ -72,17 +72,17 @@
         android:layout_height="0dp"
         app:mTopColor="@color/colorRed"
         app:mBottomColor="@color/colorYellow"
-        app:layout_constraintBottom_toTopOf="@id/Fire2"
+        app:layout_constraintBottom_toTopOf="@id/AutumnA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideVertical"
-           app:layout_constraintTop_toBottomOf="@id/Fire" />
+           app:layout_constraintTop_toBottomOf="@id/Autumn" />
 
 
     <TextView
-        android:id="@+id/Fire2"
+        android:id="@+id/AutumnA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fire"
+        android:text="Autumn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideVertical"
         app:layout_constraintBottom_toTopOf="@id/guideHorizontal"
@@ -91,12 +91,12 @@
 
 
 
-    <!--C30H-->
+    <!--Summer-->
     <TextView
-        android:id="@+id/C3"
+        android:id="@+id/Summer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="C3"
+        android:text="Summer"
         app:layout_constraintTop_toTopOf="@id/guideHorizontal"
         app:layout_constraintEnd_toEndOf="@id/guideVertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,31 +108,31 @@
         android:layout_height="0dp"
         app:mTopColor="@color/colorGreen"
         app:mBottomColor="@color/colorViolet"
-        app:layout_constraintBottom_toTopOf="@id/C32"
+        app:layout_constraintBottom_toTopOf="@id/SummerS"
         app:layout_constraintEnd_toEndOf="@id/guideVertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/C3"  />
+        app:layout_constraintTop_toBottomOf="@id/Summer"  />
 
 
-    <!--C30H-->
+    <!--Summers-->
     <TextView
-        android:id="@+id/C32"
+        android:id="@+id/SummerS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="C3"
+        android:text="Summer"
         app:layout_constraintEnd_toEndOf="@id/guideVertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="HardcodedText" />
 
 
-    <!--gas-->
+    <!--Winter-->
 
     <TextView
-        android:id="@+id/Gas"
+        android:id="@+id/WinterW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gas"
+        android:text="Winter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideVertical"
         app:layout_constraintTop_toTopOf="@id/guideHorizontal"
@@ -144,17 +144,17 @@
         android:layout_height="0dp"
         app:mTopColor="@color/colorRed"
         app:mBottomColor="@color/colorBlue"
-        app:layout_constraintBottom_toTopOf="@id/Gas2"
+        app:layout_constraintBottom_toTopOf="@id/Winter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideVertical"
-        app:layout_constraintTop_toBottomOf="@id/Gas" />
+        app:layout_constraintTop_toBottomOf="@id/WinterW" />
 
 
     <TextView
-        android:id="@+id/Gas2"
+        android:id="@+id/Winter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gas"
+        android:text="Winter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideVertical"
         app:layout_constraintBottom_toBottomOf="parent"
