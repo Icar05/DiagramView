@@ -12,6 +12,9 @@ Simple usage looks like next:
        
 ![alt text](https://github.com/Icar05/DiagramView/blob/master/usage_info.png)
 
+Usage animation: 
+
+![alt text](https://github.com/Icar05/DiagramView/blob/master/usage_anim.png)
 
 # Download
 implementation 'com.github.Icar05:diagramview:0.1.0' <br>
