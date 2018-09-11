@@ -10,7 +10,7 @@ fields: value and step. Both shouldn't be < 1.
 
 Simple usage looks like next:
        
-![alt text](https://github.com/Icar05/DiagramView/blob/master/usage.png)
+![alt text](https://github.com/Icar05/DiagramView/blob/master/usage_info.png)
 
 
 # Download
