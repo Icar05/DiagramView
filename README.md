@@ -2,7 +2,7 @@
 This view will help you, if you need to draw fine graphic. It pretty convenient and easy in
 usage
 
-![alt text](https://github.com/Icar05/DiagramView/blob/master/image.png)
+![alt text](https://github.com/Icar05/DiagramView/blob/master/image_fixed.png)
 
 If you want to use this view, you have to create class, which will inherit DiagramDataHolder,
 or you can simple use SimpleHolder(). Each step in graphic - is DataModel. DataModel has 2
