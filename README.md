@@ -13,7 +13,10 @@ Simple usage looks like next:
 
 Usage animation: 
 
-![alt text](https://github.com/Icar05/DiagramView/blob/master/usage_anim.png)
+![alt text](https://github.com/Icar05/DiagramView/blob/master/animate_usage_view.png)
+
+As you can see, before using animation, you have to init view with first array of value. 
+When you start animation, this value will move to left one by one.
 
 # Download
 implementation 'com.github.Icar05:diagramview:0.1.0' <br>
