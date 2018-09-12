@@ -26,7 +26,7 @@ public class DiagramEngine  {
 
 
 
-    private DiagramView view;
+    private DiagramView mView;
 
     private List<Integer> queryContent = new ArrayList<>();
 
@@ -34,16 +34,23 @@ public class DiagramEngine  {
 
     private boolean finish = false;
 
-    private static final int DELAY = 100;
+    private int mDelay = 100;
+
+    private final static int KEY = 777;
 
     private MyHandler handler = new MyHandler(this);
 
 
 
 
+    public DiagramEngine(DiagramView view, int delay){
+        this.mDelay = delay;
+        this.mView = view;
+        initEngine();
+    }
 
     public DiagramEngine(DiagramView view) {
-        this.view = view;
+        this.mView = view;
         initEngine();
     }
 
@@ -59,11 +66,11 @@ public class DiagramEngine  {
 
                     if(running){
                         Message msg = handler.obtainMessage();
-                        msg.what = DELAY;
+                        msg.what = KEY;
                         handler.sendMessage(msg);
 
                         try {
-                            Thread.sleep(DELAY);
+                            Thread.sleep(mDelay);
                         } catch (InterruptedException e) {
                             printLog("error, "+e.getMessage());
                         }
@@ -80,11 +87,12 @@ public class DiagramEngine  {
 
 
 
-
    //finish animation
    public void start(){
         running = true;
    }
+
+   public void pause(){running = false; }
 
 
    //start animation
@@ -99,7 +107,7 @@ public class DiagramEngine  {
      */
 
     public void addValue(Integer value){
-        int maxStep = view.getDataHolder().getMaxStep();
+        int maxStep = mView.getDataHolder().getMaxStep();
         if(checkStep(maxStep, value)){
             queryContent.add(value);
         }
@@ -118,15 +126,15 @@ public class DiagramEngine  {
 
 
     /*
-       just check new frame, if match - reload view
+       just check new frame, if match - reload mView
      */
 
     private void refreshContent(Integer current) {
 
         List<Integer> freshContent;
 
-        freshContent = pushNewData(view.getDataHolder().getContent(), current);
-        view.setContent(new SimpleHolder(freshContent));
+        freshContent = pushNewData(mView.getDataHolder().getContent(), current);
+        mView.setContent(new SimpleHolder(freshContent));
     }
 
     /*
@@ -172,7 +180,7 @@ public class DiagramEngine  {
 
         @Override
         public void handleMessage(Message msg) {
-            if(msg.what== DELAY){
+            if(msg.what== KEY){
                 myClassWeakReference.get().refresh();
             }
             super.handleMessage(msg);

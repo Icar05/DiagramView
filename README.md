@@ -5,8 +5,7 @@ usage
 ![alt text](https://github.com/Icar05/DiagramView/blob/master/diagramView.gif)
 
 If you want to use this view, you have to create class, which will inherit DiagramDataHolder,
-or you can simple use SimpleHolder(). Each step in graphic - is DataModel. DataModel has 2
-fields: value and step. Both shouldn't be < 1.
+or you can simple use SimpleHolder(). Each step in graphic - is integer, which  shouldn't be < 1.
 
 Simple usage looks like next:
        
@@ -32,7 +31,6 @@ implementation 'com.github.Icar05:diagramview:0.1.0' <br>
 # Classes
 
   • DiagramView - View for drawing graphics <br><br>
-  • DiagramModel - Model that requere for drawing view. Has 2 values : value(int) , step(int) <br><br>
   • DiagramDataHolder - Abstract parent class of holder, which store and works with content <br><br>
   • DiagramException - Custom exception, cases: value < 1, step < 1, content.size() < 1, etc. <br><br>
   • SimpleHolder - Simple child of DiagramDataHolder, that has list of models in constructor <br><br>

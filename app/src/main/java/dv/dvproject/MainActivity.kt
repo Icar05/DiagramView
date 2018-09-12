@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         bottomLeft?.setContent(bigContentHelper.source)
 
 
-        bottomLeftDiagramEngine = SimpleDiagramEngine(bottomLeft)
+        bottomLeftDiagramEngine = SimpleDiagramEngine(bottomLeft, 500)
         topRightDiagramEngine = SimpleDiagramEngine(topRight)
         topLeftDiagramEngine = SimpleDiagramEngine(topLeft)
         bottomRightDiagramEngine = SimpleDiagramEngine(bottomRight)
@@ -129,6 +129,9 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onDestroy() {
+        topRightDiagramEngine?.pause()
+        topRightDiagramEngine?.stop()
+        bottomRightDiagramEngine?.stop()
         topLeftDiagramEngine?.stop()
         bottomLeftDiagramEngine?.stop()
         super.onDestroy()
