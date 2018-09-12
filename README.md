@@ -2,7 +2,7 @@
 This view will help you, if you need to draw fine graphic. It pretty convenient and easy in
 usage
 
-![alt text](https://github.com/Icar05/DiagramView/blob/master/image.gif)
+![alt text](https://github.com/Icar05/DiagramView/blob/master/giphy.gif)
 
 If you want to use this view, you have to create class, which will inherit DiagramDataHolder,
 or you can simple use SimpleHolder(). Each step in graphic - is integer, which  shouldn't be < 1.
