@@ -9,7 +9,7 @@ or you can simple use SimpleHolder(). Each step in graphic - is integer, which  
 
 Simple usage looks like next:
        
-![alt text](https://github.com/Icar05/DiagramView/blob/master/usage_info.png)
+![alt text](https://github.com/Icar05/DiagramView/blob/master/simple_usage_view.png)
 
 Usage animation: 
 
