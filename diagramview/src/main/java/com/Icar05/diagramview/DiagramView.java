@@ -38,7 +38,7 @@ public class DiagramView extends View {
 
     private int stepsValue = 4;
 
-    private List<DiagramModel> content = new ArrayList<>();
+    private List<Integer> content = new ArrayList<>();
 
 
 
@@ -104,7 +104,6 @@ public class DiagramView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-
         drawBackgroundGradient(canvas);
         drawLines(canvas);
         drawPointsByCount(canvas);
@@ -115,7 +114,6 @@ public class DiagramView extends View {
     private  void drawBackgroundGradient(Canvas canvas) {
 
         Paint gradientPaint = new Paint();
-
 
         Shader shader = new LinearGradient(0, 0, 0, getHeight(),
                 Color.TRANSPARENT,  mBottomColor, Shader.TileMode.MIRROR);
@@ -181,26 +179,25 @@ public class DiagramView extends View {
 
         preparePaintToDrawPoints();
 
+        float itemSize = calculateItemSize();
+
 
         int startX = 0;
-        float step = calculateStep(content);
 
         Float[] axesY  = calculateAxesY();
 
             for (int i = 0; i< content.size(); i++){
 
-                int currentStep = content.get(i).getStep();
-                float itemSize = getSizeByStep( content.get(i).getValue(), step);
-
+                int currentStep = content.get(i);
 
                     float startY = axesY[currentStep-1];
                     canvas.drawLine(startX, startY, startX +=(Math.ceil(itemSize)), startY, paint);
 
                     // draw vertical lines
                     if(i != 0){
-                        int previousStep =  content.get(i -1).getStep();
+                        int previousStep =  content.get(i -1);
 
-                        float prevY = axesY[ content.get(i -1).getStep()-1];
+                        float prevY = axesY[ content.get(i -1) -1];
                         float x = startX - itemSize;
 
                         if(previousStep != currentStep){
@@ -211,31 +208,13 @@ public class DiagramView extends View {
             }
     }
 
+    private float calculateItemSize() {
+        return (float) getWidth()/content.size();
+    }
+
 
     private void drawVerticalLine(float startX, float startY, float endY,  Canvas canvas) {
         canvas.drawLine(startX, startY, startX, endY, paint);
-    }
-
-    private float getSizeByStep(int value, float step) {
-        return (float) value*step;
-    }
-
-
-
-    private float calculateStep(List<DiagramModel> models){
-        return  getWidth()/ calculateValuesSum(models);
-    }
-
-
-    private float calculateValuesSum(List<DiagramModel> models) {
-
-        int sum = 0;
-
-        for (DiagramModel model : models){
-            sum += model.getValue();
-        }
-
-        return (float)sum;
     }
 
     private void drawLine(Canvas canvas, float lineY) {

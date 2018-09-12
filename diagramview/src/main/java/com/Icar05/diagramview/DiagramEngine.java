@@ -28,7 +28,7 @@ public class DiagramEngine  {
 
     private DiagramView view;
 
-    private List<DiagramModel> queryContent = new ArrayList<>();
+    private List<Integer> queryContent = new ArrayList<>();
 
     private boolean running = false;
 
@@ -98,9 +98,9 @@ public class DiagramEngine  {
      just add new frame
      */
 
-    public void addValue(DiagramModel value){
+    public void addValue(Integer value){
         int maxStep = view.getDataHolder().getMaxStep();
-        if(checkStep(maxStep, value.getStep())){
+        if(checkStep(maxStep, value)){
             queryContent.add(value);
         }
     }
@@ -110,7 +110,7 @@ public class DiagramEngine  {
      */
     private  void refresh(){
         if(queryContent.size() > 0){
-            DiagramModel current = queryContent.get(0);
+            Integer current = queryContent.get(0);
             refreshContent(current);
             queryContent.remove(0);
         }
@@ -121,9 +121,9 @@ public class DiagramEngine  {
        just check new frame, if match - reload view
      */
 
-    private void refreshContent(DiagramModel current) {
+    private void refreshContent(Integer current) {
 
-        List<DiagramModel> freshContent;
+        List<Integer> freshContent;
 
         freshContent = pushNewData(view.getDataHolder().getContent(), current);
         view.setContent(new SimpleHolder(freshContent));
@@ -134,8 +134,8 @@ public class DiagramEngine  {
       previous items
      */
 
-    private List<DiagramModel> pushNewData(List<DiagramModel> content, DiagramModel current) {
-        List<DiagramModel> list = new ArrayList<>();
+    private List<Integer> pushNewData(List<Integer> content, Integer current) {
+        List<Integer> list = new ArrayList<>();
 
         for(int i = 1; i< content.size(); i++){
             list.add(content.get(i));

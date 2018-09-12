@@ -4,14 +4,14 @@ import java.util.List;
 
 public class SimpleHolder extends DiagramDataHolder {
 
-    private List<DiagramModel> list;
+    private List<Integer> list;
 
-    public SimpleHolder(List<DiagramModel> list) {
+    public SimpleHolder(List<Integer> list) {
         this.list = list;
     }
 
     @Override
-    protected List<DiagramModel> fillList() {
+    protected List<Integer> fillList() {
         return list;
     }
 

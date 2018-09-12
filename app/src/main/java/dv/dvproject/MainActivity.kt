@@ -2,13 +2,13 @@ package dv.dvproject
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
-import com.Icar05.diagramview.*
+import com.Icar05.diagramview.DiagramView
 
-class MainActivity : AppCompatActivity(), BigContentHelper.bigContentHelper {
+class MainActivity : AppCompatActivity() {
 
 
 
@@ -22,12 +22,13 @@ class MainActivity : AppCompatActivity(), BigContentHelper.bigContentHelper {
 
     private val bigContentHelper = BigContentHelper()
 
-    private var diagramEngine: DiagramEngine? = null
+    private var bottomLeftDiagramEngine: SimpleDiagramEngine? = null
 
-    private var topLeftDiagramEngine: DiagramEngine? = null
+    private var topLeftDiagramEngine: SimpleDiagramEngine? = null
 
-    private var bottomRightDiagramEngine: DiagramEngine? = null
+    private var bottomRightDiagramEngine: SimpleDiagramEngine? = null
 
+    private var topRightDiagramEngine: SimpleDiagramEngine? = null
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -43,61 +44,65 @@ class MainActivity : AppCompatActivity(), BigContentHelper.bigContentHelper {
 
 
         //first set up
-        topRight?.setContent(ContentHelper(3, 18))
-        topLeft?.setContent(ContentHelper(2, 25))
-        bottomRight?.setContent(ContentHelper(3, 20))
+        topRight?.setContent(ContentHelper())
+        topLeft?.setContent(ContentHelper())
+        bottomRight?.setContent(ContentHelper())
         bottomLeft?.setContent(bigContentHelper.source)
 
 
-        prepareTopLeftAnimation()
-        diagramEngine = DiagramEngine(bottomRight)
-        bottomRightDiagramEngine = DiagramEngine(bottomLeft)
+        bottomLeftDiagramEngine = SimpleDiagramEngine(bottomLeft)
+        topRightDiagramEngine = SimpleDiagramEngine(topRight)
+        topLeftDiagramEngine = SimpleDiagramEngine(topLeft)
+        bottomRightDiagramEngine = SimpleDiagramEngine(bottomRight)
 
         topRight?.setOnTouchListener { _: View, _: MotionEvent -> refreshTopRight() }
         topLeft?.setOnTouchListener { _: View, _: MotionEvent -> emitDataToTopLeft() }
-        bottomLeft?.setOnTouchListener { _: View, _: MotionEvent -> startAnimation() }
-        bottomRight?.setOnTouchListener { _: View, _: MotionEvent -> startNewAnimation() }
+        bottomLeft?.setOnTouchListener { _: View, _: MotionEvent -> startBtlAnim() }
+        bottomRight?.setOnTouchListener { _: View, _: MotionEvent -> startBTRAnim() }
+
+
     }
 
     private fun emitDataToTopLeft(): Boolean {
+         topLeftDiagramEngine?.start()
          topLeftDiagramEngine?.addValue(bigContentHelper.randomData)
          return false
     }
 
-    private fun prepareTopLeftAnimation() {
-        topLeftDiagramEngine = DiagramEngine(topLeft)
-        topLeftDiagramEngine?.start()
-    }
 
+    //animate bottom right
+    private fun startBTRAnim(): Boolean {
+        bigContentHelper.setDelegate(bottomRightDiagramEngine)
+        bottomRightDiagramEngine?.start()
 
-    override fun getNewContent(model: DiagramModel?) {
-        diagramEngine?.addValue(model)
-    }
-
-    private fun startNewAnimation(): Boolean {
-        diagramEngine?.start()
-
-        bigContentHelper.setDelegate(this)
         bigContentHelper.emitData(100)
         return false
     }
 
 
 
+      //anim bttom left
+    private fun startBtlAnim(): Boolean {
+        bigContentHelper.setDelegate(bottomLeftDiagramEngine)
+        bottomLeftDiagramEngine?.start()
 
-    private fun startAnimation(): Boolean {
-        bottomRightDiagramEngine?.start()
 
-        bigContentHelper.setDelegate(this)
         bigContentHelper.emitData(50)
         return false
     }
 
 
-
-
     private fun refreshTopRight(): Boolean {
         showDialog()
+        return false
+    }
+
+
+    private fun startAlertAnimation(engine: SimpleDiagramEngine): Boolean{
+        bigContentHelper.setDelegate(engine)
+        engine.start()
+
+        bigContentHelper.emitData(50)
         return false
     }
 
@@ -111,9 +116,10 @@ class MainActivity : AppCompatActivity(), BigContentHelper.bigContentHelper {
         dialogBuilder.setView(dialogView)
 
         val diagram = dialogView.findViewById(R.id.dvTopLeft) as DiagramView
-        diagram.setContent(ContentHelper(2, 25))
+        val diagramEngine = SimpleDiagramEngine(diagram)
+        diagram.setContent(ContentHelper())
         diagram.setOnTouchListener { _: View, _: MotionEvent ->
-            startAnimation()
+            startAlertAnimation(diagramEngine)
         }
 
         dialogBuilder.setPositiveButton("hide dialog", null)
@@ -124,7 +130,7 @@ class MainActivity : AppCompatActivity(), BigContentHelper.bigContentHelper {
 
     override fun onDestroy() {
         topLeftDiagramEngine?.stop()
-        diagramEngine?.stop()
+        bottomLeftDiagramEngine?.stop()
         super.onDestroy()
     }
 }

@@ -5,11 +5,12 @@ import java.util.List;
 public abstract class DiagramDataHolder {
 
 
-    private List<DiagramModel> list;
-
-
+    private List<Integer> list;
 
     private String errorMessage;
+
+
+
 
 
     public final String getErrorMessage() {
@@ -18,7 +19,7 @@ public abstract class DiagramDataHolder {
 
     public final boolean setup(){
         list = fillList();
-        return checkNull() && checkValues() && checkSteps() && checkContentSize();
+        return checkNull() && checkSteps() && checkContentSize();
     }
 
     private boolean checkContentSize() {
@@ -31,25 +32,16 @@ public abstract class DiagramDataHolder {
     }
 
     private boolean checkSteps() {
-        for(DiagramModel model : list){
-            if(model.getStep() < 1){
+        for(int i = 0; i< list.size(); i++){
+            if(list.get(i) < 1){
                 errorMessage = "Each steps should be > 1";
                 return false;
             }
         }
+
         return true;
     }
 
-    private boolean checkValues() {
-
-        for(DiagramModel model : list){
-            if(model.getValue() < 1){
-                errorMessage = "Each values should be > 1";
-                return false;
-            }
-        }
-        return true;
-    }
 
     private boolean checkNull() {
 
@@ -61,10 +53,10 @@ public abstract class DiagramDataHolder {
         return true;
     }
 
-    protected abstract List<DiagramModel> fillList();
+    protected abstract List<Integer> fillList();
 
 
-    public final List<DiagramModel> getContent() {
+    public final List<Integer> getContent() {
         return list;
     }
 
@@ -73,15 +65,16 @@ public abstract class DiagramDataHolder {
     }
 
 
-    private  Integer calculateMaxStep(List<DiagramModel> list) {
+    private  Integer calculateMaxStep(List<Integer> list) {
 
         int maxValue = 0;
 
-        for(DiagramModel model : list){
-            if(model.getStep() > maxValue){
-                maxValue = model.getStep();
+        for(int i = 0; i< list.size(); i++){
+            if(list.get(i) > maxValue){
+                maxValue = list.get(i);
             }
         }
+
         return maxValue;
     }
 }
