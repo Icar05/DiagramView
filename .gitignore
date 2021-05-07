@@ -1,0 +1,6 @@
+/app/build/
+/.idea
+/diagramview/build
+/.gradle
+/local.properties
+/gradle/wrapper/gradle-wrapper.jar
